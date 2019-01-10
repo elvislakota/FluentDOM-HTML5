@@ -24,7 +24,8 @@
         "masterminds/html5": "~2.2"
     },
     "require-dev": {
-        "fluentdom/selectors-phpcss": "^1.1"
+      "fluentdom/selectors-phpcss": "^1.1",
+      "phpunit/phpunit": "^6.5"
     },
     "autoload": {
         "files" : ["src/plugin.php"],
