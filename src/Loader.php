@@ -24,9 +24,7 @@ namespace FluentDOM\HTML5 {
      * Load a DOM document from a HTML5 string or file
      */
     class Loader implements Loadable{
-
         use Supports;
-
 
         const IS_FRAGMENT = 'is_fragment';
 
@@ -42,7 +40,6 @@ namespace FluentDOM\HTML5 {
         public function getSupported(): array{
             return ['html5', 'text/html5', 'html5-fragment', 'text/html5-fragment'];
         }
-
 
         /**
          * Loads DOMDocument into memory from File or from Type Text
