@@ -1,11 +1,12 @@
 <?php
 namespace FluentDOM\HTML5 {
 
-  use PHPUnit\Framework\TestCase;
 
-  require_once __DIR__.'/../../vendor/autoload.php';
+    use PHPUnit\Framework\TestCase;
 
-  class Issue2Test extends TestCase {
+    require_once __DIR__ . '/../../vendor/autoload.php';
+
+    class Issue2Test extends TestCase{
 
     public function testLoadAndSaveFragment() {
       $result = (string)\FluentDOM::Query('<b>Hello</b><i>World!</i>', 'html5-fragment');

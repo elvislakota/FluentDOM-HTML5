@@ -1,10 +1,11 @@
 <?php
 namespace FluentDOM\HTML5 {
 
-  use FluentDOM\Loader\Result;
-  use PHPUnit\Framework\TestCase;
+    use FluentDOM\HTML5\Exceptions\FluentLoaderExceptions;
+    use FluentDOM\Loader\Result;
+    use PHPUnit\Framework\TestCase;
 
-  require_once __DIR__.'/../vendor/autoload.php';
+    require_once __DIR__ . '/../vendor/autoload.php';
 
   class LoaderTest extends TestCase {
 
@@ -43,7 +44,9 @@ namespace FluentDOM\HTML5 {
           </body>
         </html>',
         $loader->load($html, 'text/html5')->saveXML()
+
       );
+        //TODO: Unhandled Exceptions\FluentLoaderExceptions
     }
 
     /**
@@ -74,6 +77,8 @@ namespace FluentDOM\HTML5 {
         </html>',
         $loader->load($html, 'text/html5', [Loader::DISABLE_HTML_NAMESPACE => TRUE])->saveXML()
       );
+        //TODO: Unhandled Exceptions\FluentLoaderExceptions
+
     }
 
     /**
@@ -81,9 +86,12 @@ namespace FluentDOM\HTML5 {
      */
     public function testLoadReturnsNullFormInvalidSource() {
       $loader = new Loader();
-      $this->assertNull(
-        $loader->load(NULL, 'type/invalid')
-      );
+        $this->expectException(FluentLoaderExceptions::class);
+
+        $loader->load(NULL, 'type/invalid');
+
+
+
     }
 
     /**
@@ -100,9 +108,8 @@ namespace FluentDOM\HTML5 {
         )
       );
       $this->assertEquals(
-        '<div xmlns="http://www.w3.org/1999/xhtml">Test</div>Text<input xmlns="http://www.w3.org/1999/xhtml"></input>',
-        $result->getDocument()->saveHTML()
-      );
+        '<div xmlns="http://www.w3.org/1999/xhtml">Test</div>Text<input xmlns="http://www.w3.org/1999/xhtml"></input>', $result->getDocument()->saveHTML());        //TODO: Unhandled Exceptions\FluentLoaderExceptions
+
     }
 
     /**
@@ -121,7 +128,9 @@ namespace FluentDOM\HTML5 {
           ]
         )
       );
-      $this->assertEquals(
+        //TODO: $loader->load Unhandled Exceptions\FluentLoaderExceptions
+
+        $this->assertEquals(
         '<div xmlns="http://www.w3.org/1999/xhtml">Test</div>Text<input xmlns="http://www.w3.org/1999/xhtml"></input>',
         $result->getDocument()->saveHTML()
       );
